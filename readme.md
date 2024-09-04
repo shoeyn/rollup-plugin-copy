@@ -1,7 +1,6 @@
-# rollup-plugin-copy
+# @shoeyn/rollup-plugin-copy
 
-[![Build Status](https://travis-ci.com/vladshcherbin/rollup-plugin-copy.svg?branch=master)](https://travis-ci.com/vladshcherbin/rollup-plugin-copy)
-[![Codecov](https://codecov.io/gh/vladshcherbin/rollup-plugin-copy/branch/master/graph/badge.svg)](https://codecov.io/gh/vladshcherbin/rollup-plugin-copy)
+![publish status](https://github.com/shoeyn/rollup-plugin-copy/actions/workflows/publish.yml/badge.svg)
 
 Copy files and folders, with glob support.
 
@@ -9,24 +8,20 @@ Copy files and folders, with glob support.
 
 ```bash
 # yarn
-yarn add rollup-plugin-copy -D
+yarn add @shoeyn/rollup-plugin-copy -D
 
 # npm
-npm install rollup-plugin-copy -D
+npm install @shoeyn/rollup-plugin-copy -D
 ```
 
 ## Usage
 
 ```js
 // rollup.config.js
-import copy from 'rollup-plugin-copy'
+import copy from '@shoeyn/rollup-plugin-copy'
 
 export default {
-  input: 'src/index.js',
-  output: {
-    file: 'dist/app.js',
-    format: 'cjs'
-  },
+  ...
   plugins: [
     copy({
       targets: [

@@ -3,8 +3,8 @@ import { rollup, watch } from 'rollup'
 import fs from 'fs-extra'
 import { replaceInFile } from 'replace-in-file'
 import { bold, green, yellow } from 'colorette'
-import copy from '..'
 import { describe, afterEach, test, expect, vi } from 'vitest'
+import copy from '..'
 
 process.chdir(`${__dirname}/fixtures`)
 

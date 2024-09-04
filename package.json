@@ -1,9 +1,12 @@
 {
-  "name": "rollup-plugin-copy",
+  "name": "@shoeyn/rollup-plugin-copy",
   "description": "Copy files and folders using Rollup",
   "version": "4.0.0",
   "author": "Nathan Shoemark <n.shoemark@gmail.com>",
-  "repository": "shoeyn/rollup-plugin-copy",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shoeyn/rollup-plugin-copy.git"
+  },
   "exports": {
     "types": "./index.d.ts",
     "default": "./index.js"
@@ -11,10 +14,9 @@
   "type": "module",
   "scripts": {
     "clean": "rimraf coverage dist",
-    "build": "rollup -c",
-    "lint": "eslint src tests",
-    "postpublish": "pnpm run clean",
-    "prepublishOnly": "pnpm run lint && pnpm run test && pnpm run clean && pnpm run build",
+    "lint": "eslint ./index.js tests",
+    "postpublish": "npm run clean",
+    "prepublishOnly": "npm run lint && npm run test && npm run clean",
     "test": "vitest",
     "coverage": "vitest run --coverage"
   },
@@ -33,7 +35,6 @@
     "replace-in-file": "^8.1.0",
     "rimraf": "^5.0.10",
     "rollup": "^4.21.2",
-    "rollup-plugin-auto-external": "^2.0.0",
     "vitest": "^2.0.5"
   },
   "files": [
@@ -56,5 +57,11 @@
   "engines": {
     "node": ">=18"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "main": "index.js",
+  "types": "./index.d.ts",
+  "bugs": {
+    "url": "https://github.com/shoeyn/rollup-plugin-copy/issues"
+  },
+  "homepage": "https://github.com/shoeyn/rollup-plugin-copy#readme"
 }

@@ -15,8 +15,8 @@
   "scripts": {
     "clean": "rimraf coverage dist",
     "lint": "eslint ./index.js tests",
-    "postpublish": "pnpm run clean",
-    "prepublishOnly": "pnpm run lint && pnpm run test && pnpm run clean",
+    "postpublish": "npm run clean",
+    "prepublishOnly": "npm run lint && npm run test && npm run clean",
     "test": "vitest",
     "coverage": "vitest run --coverage"
   },

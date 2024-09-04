@@ -1,46 +1,44 @@
 {
   "name": "rollup-plugin-copy",
   "description": "Copy files and folders using Rollup",
-  "version": "3.5.0",
-  "author": "Vlad Shcherbin <vlad.shcherbin@gmail.com>",
-  "repository": "vladshcherbin/rollup-plugin-copy",
-  "main": "dist/index.commonjs.js",
-  "module": "dist/index.module.js",
-  "types": "index.d.ts",
+  "version": "4.0.0",
+  "author": "Nathan Shoemark <n.shoemark@gmail.com>",
+  "repository": "shoeyn/rollup-plugin-copy",
+  "exports": {
+    "types": "./index.d.ts",
+    "default": "./index.js"
+  },
+  "type": "module",
   "scripts": {
     "clean": "rimraf coverage dist",
     "build": "rollup -c",
     "lint": "eslint src tests",
-    "postpublish": "yarn clean",
-    "prepublishOnly": "yarn lint && yarn test && yarn clean && yarn build",
-    "test": "jest"
+    "postpublish": "pnpm run clean",
+    "prepublishOnly": "pnpm run lint && pnpm run test && pnpm run clean && pnpm run build",
+    "test": "vitest",
+    "coverage": "vitest run --coverage"
   },
   "dependencies": {
-    "@types/fs-extra": "^8.0.1",
-    "colorette": "^1.1.0",
-    "fs-extra": "^8.1.0",
-    "globby": "10.0.1",
-    "is-plain-object": "^3.0.0"
+    "@types/fs-extra": "^11.0.4",
+    "colorette": "^2.0.20",
+    "fs-extra": "^11.2.0",
+    "globby": "14.0.2",
+    "is-plain-object": "^5.0.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.17",
-    "@babel/preset-env": "^7.12.17",
-    "babel-jest": "^25.5.1",
-    "codecov": "^3.6.1",
-    "eslint": "6.5.1",
-    "eslint-config-airbnb-base": "^14.0.0",
-    "eslint-plugin-import": "^2.20.0",
-    "jest": "^25.5.4",
-    "replace-in-file": "^5.0.2",
-    "rimraf": "^3.0.0",
-    "rollup": "^1.29.0",
+    "@vitest/coverage-v8": "^2.0.5",
+    "eslint": "8.57.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.30.0",
+    "replace-in-file": "^8.1.0",
+    "rimraf": "^5.0.10",
+    "rollup": "^4.21.2",
     "rollup-plugin-auto-external": "^2.0.0",
-    "rollup-plugin-babel": "^4.3.3"
+    "vitest": "^2.0.5"
   },
   "files": [
-    "dist",
-    "index.d.ts",
-    "readme.md"
+    "index.js",
+    "index.d.ts"
   ],
   "keywords": [
     "rollup",
@@ -56,7 +54,7 @@
     "glob"
   ],
   "engines": {
-    "node": ">=8.3"
+    "node": ">=18"
   },
   "license": "MIT"
 }

@@ -1,16 +1,15 @@
 import path from 'path'
 import { rollup, watch } from 'rollup'
 import fs from 'fs-extra'
-import replace from 'replace-in-file'
-import { bold, green, yellow, options } from 'colorette'
-import copy from '../src'
+import { replaceInFile } from 'replace-in-file'
+import { bold, green, yellow } from 'colorette'
+import copy from '..'
+import { describe, afterEach, test, expect, vi } from 'vitest'
 
 process.chdir(`${__dirname}/fixtures`)
 
-options.enabled = true
-
 function sleep(ms) {
-  return new Promise((resolve) => setTimeout(resolve, ms))
+  return new Promise((resolve) => { setTimeout(resolve, ms) })
 }
 
 function readFile(filePath) {
@@ -289,7 +288,7 @@ describe('Copy', () => {
 describe('Options', () => {
   /* eslint-disable no-console */
   test('Verbose, copy files', async () => {
-    console.log = jest.fn()
+    console.log = vi.fn()
 
     await build({
       targets: [{
@@ -313,7 +312,7 @@ describe('Options', () => {
   })
 
   test('Verbose, no files to copy', async () => {
-    console.log = jest.fn()
+    console.log = vi.fn()
 
     await build({
       targets: [
@@ -327,7 +326,7 @@ describe('Options', () => {
   })
 
   test('Verbose, rename files', async () => {
-    console.log = jest.fn()
+    console.log = vi.fn()
 
     await build({
       targets: [
@@ -354,7 +353,7 @@ describe('Options', () => {
   })
 
   test('Verbose, transform files', async () => {
-    console.log = jest.fn()
+    console.log = vi.fn()
 
     await build({
       targets: [{
@@ -412,7 +411,7 @@ describe('Options', () => {
 
     expect(await fs.pathExists('dist/asset-1.js')).toBe(false)
 
-    await replace({
+    await replaceInFile({
       files: 'src/index.js',
       from: 'hey',
       to: 'ho'
@@ -424,7 +423,7 @@ describe('Options', () => {
 
     watcher.close()
 
-    await replace({
+    await replaceInFile({
       files: 'src/index.js',
       from: 'ho',
       to: 'hey'

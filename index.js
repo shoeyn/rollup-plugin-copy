@@ -1,9 +1,9 @@
 /* eslint-disable no-await-in-loop, no-console, no-restricted-syntax */
-import path from 'path'
-import util from 'util'
+import path from 'node:path'
+import util from 'node:util'
 import fs from 'fs-extra'
-import isObject from 'is-plain-object'
-import globby from 'globby'
+import { isPlainObject } from 'is-plain-object'
+import { globby } from 'globby'
 import { bold, green, yellow } from 'colorette'
 
 function stringify(value) {
@@ -67,7 +67,7 @@ export default function copy(options = {}) {
 
       if (Array.isArray(targets) && targets.length) {
         for (const target of targets) {
-          if (!isObject(target)) {
+          if (!isPlainObject(target)) {
             throw new Error(`${stringify(target)} target must be an object`)
           }
 

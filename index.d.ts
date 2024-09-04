@@ -1,8 +1,8 @@
 import rollup from 'rollup';
 import fs from 'fs-extra';
-import globby from 'globby';
+import { Options as GlobbyOptions } from 'globby';
 
-interface Target extends globby.GlobbyOptions {
+interface Target extends GlobbyOptions {
     /**
      * Path or glob of what to copy.
      */
@@ -24,7 +24,7 @@ interface Target extends globby.GlobbyOptions {
     readonly transform?: (contents: Buffer, name: string) => any;
 }
 
-interface CopyOptions extends globby.GlobbyOptions, fs.WriteFileOptions, fs.CopyOptions {
+interface CopyOptions extends GlobbyOptions, fs.WriteFileOptions, fs.CopyOptions {
     /**
      * Copy items once. Useful in watch mode.
      * @default false

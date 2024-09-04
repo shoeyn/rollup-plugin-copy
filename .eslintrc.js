@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   extends: 'airbnb-base',
   rules: {
     'comma-dangle': ['error', 'never'],

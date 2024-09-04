@@ -186,6 +186,7 @@ copy({
 })
 
 ```
+
 #### copySync
 
 Type: `boolean` | Default: `false`
@@ -213,8 +214,13 @@ copy({
 ```
 
 All other options are passed to packages, used inside:
-  - [globby](https://github.com/sindresorhus/globby)
-  - [fs-extra copy function](https://github.com/jprichardson/node-fs-extra/blob/7.0.0/docs/copy.md)
+
+- [globby](https://github.com/sindresorhus/globby)
+- [fs-extra copy function](https://github.com/jprichardson/node-fs-extra/blob/7.0.0/docs/copy.md)
+
+## Forked
+
+[Vlad Shcherbin](https://github.com/vladshcherbin/rollup-plugin-copy)
 
 ## Original Author
 
